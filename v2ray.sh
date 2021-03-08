@@ -24,7 +24,7 @@ Config() {
     clear
     uuid=`cat /proc/sys/kernel/random/uuid`
     tcpFastOpen=`[ -f /proc/sys/net/ipv4/tcp_fastopen ] && echo -n 'true' || -n echo 'false'`
-    echo -n $echo_e_arg "0. github(国内,压缩)\n1. coding(官方源)\n2. tencent(国内，压缩)\n请输入v2ray 核心的下载源(默认 0.github): "
+    echo -n $echo_e_arg "0. github(国内,压缩)\n1. coding(官方源)\n2. tencent(国内，压缩)\n请输入v2ray 核心的下载源(默认 github): "
     read v2rayCoreSource
     echo -n "请输入v2ray安装目录(默认:/usr/local/v2ray): "
     read install_dir
