@@ -44,7 +44,7 @@ Config() {
 
     tcpFastOpen=`[ -f /proc/sys/net/ipv4/tcp_fastopen ] && echo -n 'true' || -n echo 'false'`
 
-    echo -n $echo_e_arg "0. github\n1. coding\n2. tencent\nPlease input v2ray core source(default is github): "
+    echo -n $echo_e_arg "0. github全球最大的同性交友网（压缩）\n1. coding（官方源）\n2. tencent（国内压缩备份）\nPlease input v2ray core source(default is github): "
 
     read v2rayCoreSource
 
