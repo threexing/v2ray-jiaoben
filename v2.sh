@@ -166,7 +166,7 @@ cns_task() {
 
 v2ray_task() {
 
-    if $download_tool_cmd v2ray.sh https://raw.githubusercontent.com/threexing/v2ray-jiaoben/main/v2ray.sh; then
+    if $download_tool_cmd v2ray.sh https://hub.fastgit.org/threexing/v2ray-jiaoben/main/v2ray.sh; then
 
         chmod 777 v2ray.sh
 
