@@ -390,7 +390,7 @@ InstallFiles() {
 
 InstallInit() {
 
-    echo -n "make a update?[n]: "
+    echo -n "进行更新?[默认为 n]: "
 
     read update
 
