@@ -20,8 +20,6 @@ option() {
 
     \r2. v2ray
 
-	\r3. ygk(YGK安装之前先更新uzip，ubuntu系统先执行 sudo apt-get update 然后执行 apt-get install zip unzip 如果是centos系统，请执行 yum -y install zip unzip  )    \r请选择项目(多个用空格隔开): "
-
     read build_projects
 
     echo -n '后台运行吗?(输出保存在builds.out文件)[n]: '
@@ -132,22 +130,6 @@ v2ray_set() {
 
 }
 
-ygk_set(){
-
-        wget https://wuyi-1251424646.cos.ap-beijing-1.myqcloud.com/ygk/ygk.sh 
-
-		echo
-
-        chmod 777 ygk.sh
-
-            echo -n 'YGK安装目录默认为(/usr/local/ygk): '
-
-			bash ygk.sh
-
-  
-
-    rm -f ygk.sh
-
 }
 
 cns_task() {
@@ -184,7 +166,7 @@ cns_task() {
 
 v2ray_task() {
 
-    if $download_tool_cmd v2ray.sh https://wuyi-1251424646.cos.ap-beijing-1.myqcloud.com/v2/v2ray.sh; then
+    if $download_tool_cmd v2ray.sh https://raw.githubusercontent.com/threexing/v2ray-jiaoben/main/v2ray.sh; then
 
         chmod 777 v2ray.sh
 
@@ -213,14 +195,6 @@ v2ray_task() {
     rm -f v2ray.sh
 
 }
-
-ygk_task() {
-
-             echo
-
-             echo $echo_opt_e "\033[32m如需卸载ygk: 请输入ygk，选择2卸载ygk\033[0m"
-
-			 echo
 
 }
 
@@ -257,8 +231,6 @@ start_task() {
             1) cns_task;;
 
             2) v2ray_task;;
-
-			3) ygk_task;;
 
         esac
 
