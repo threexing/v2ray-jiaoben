@@ -52,15 +52,15 @@ Config() {
 
     read install_dir
 
-    echo -n "请输入v2ray http服务器端口(留空不使用): "
+    echo -n "请输入v2ray http 端口(留空不使用): "
 
     read http_server_port
 
-    echo -n "请输入v2ray webSocket 服务器端口(留空不使用): "
+    echo -n "请输入v2ray webSocket 端口(留空不使用): "
 
     read ws_server_port
 
-    echo -n "请输入v2ray mKCP 服务器端口(留空不使用): "
+    echo -n "请输入v2ray mKCP 端口(留空不使用): "
 
     read mkcp_server_port
 
@@ -114,7 +114,7 @@ Config() {
 
     if [ -n "$ws_server_port" ]; then
 
-        echo -n "请输入v2ray webSocket 请求头的Path(default is '/'): "
+        echo -n "请输入v2ray webSocket 请求头的Path(默认为: / ): "
 
         read ws_path
 
