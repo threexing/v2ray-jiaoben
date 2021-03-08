@@ -44,23 +44,23 @@ Config() {
 
     tcpFastOpen=`[ -f /proc/sys/net/ipv4/tcp_fastopen ] && echo -n 'true' || -n echo 'false'`
 
-    echo -n $echo_e_arg "0. github全球最大的同性交友网（压缩）\n1. coding（官方源）\n2. tencent（国内压缩备份）\nPlease input v2ray core source(default is github): "
+    echo -n $echo_e_arg "0. github 全球最大的同性交友网（国内,压缩）\n1. coding（官方源）\n2. tencent（国内,压缩）\n请输入v2ray 核心的下载源(默认为 github): "
 
     read v2rayCoreSource
 
-    echo -n "Please input v2ray install directory(default is /usr/local/v2ray): "
+    echo -n "请输入v2ray安装目录(默认为: /usr/local/v2ray): "
 
     read install_dir
 
-    echo -n "Please input v2ray http server port(If not, do not enter): "
+    echo -n "请输入v2ray http服务器端口(If not, do not enter): "
 
     read http_server_port
 
-    echo -n "Please input v2ray webSocket server port(If not, do not enter): "
+    echo -n "请输入v2ray webSocket 服务器端口(If not, do not enter): "
 
     read ws_server_port
 
-    echo -n "Please input v2ray mKCP server port(If not, do not enter): "
+    echo -n "请输入v2ray mKCP 服务器端口(If not, do not enter): "
 
     read mkcp_server_port
 
@@ -82,7 +82,7 @@ Config() {
 
                      "level": 0,
 
-                     "alterId": 4
+                     "alterId": 6
 
                 }]
 
@@ -114,11 +114,11 @@ Config() {
 
     if [ -n "$ws_server_port" ]; then
 
-        echo -n "Please input v2ray webSocket Path(default is '/'): "
+        echo -n "请输入v2ray webSocket Path(default is '/'): "
 
         read ws_path
 
-        echo -n "Please input webSocket tls domain(If not, do not enter): "
+        echo -n "请输入webSocket tls domain(If not, do not enter): "
 
         read tls_domain
 
@@ -140,7 +140,7 @@ Config() {
 
                     "level": 0,
 
-                    "alterId": 4
+                    "alterId": 6
 
                 }]
 
@@ -188,7 +188,7 @@ Config() {
 
                     "level": 0,
 
-                    "alterId": 4
+                    "alterId": 6
 
                 }]
 
