@@ -114,7 +114,7 @@ Config() {
 
     if [ -n "$ws_server_port" ]; then
 
-        echo -n "Please input v2ray webSocket Path(default is '/cutebi'): "
+        echo -n "Please input v2ray webSocket Path(default is '/'): "
 
         read ws_path
 
@@ -158,7 +158,7 @@ Config() {
 
                 "wsSettings": {
 
-                    "path": "'${ws_path:-/cutebi}'"
+                    "path": "'${ws_path:-/}'"
 
                 }
 
@@ -416,9 +416,9 @@ outputVmessLink() {
 
     [ -z "$ip" ] && return
 
-    [ -n "$http_server_port" ] && echo -n $echo_e_arg "\rhttp: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": '$http_server_port', "aid": "4", "host": "cutebi.xyz", "id": "'$uuid'", "net": "tcp", "path": "/", "ps": "http_'$ip:$http_server_port'", "tls": "", "type": "http", "v": "2"}'|base64 -w 0 && echo
+    [ -n "$http_server_port" ] && echo -n $echo_e_arg "\rhttp: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": '$http_server_port', "aid": "4", "host": "wapzt.189.cn", "id": "'$uuid'", "net": "tcp", "path": "/", "ps": "http_'$ip:$http_server_port'", "tls": "", "type": "http", "v": "2"}'|base64 -w 0 && echo
 
-    [ -n "$ws_server_port" ] && echo -n $echo_e_arg "\rws: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$ws_server_port'", "aid": "4", "host": "cutebi.xyz", "id": "'$uuid'", "net": "ws", "path": "'$ws_path'", "ps": "ws_'$ip:$ws_server_port'", "tls": "", "type": "none", "v": "2"}'|base64 -w 0 && echo
+    [ -n "$ws_server_port" ] && echo -n $echo_e_arg "\rws: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$ws_server_port'", "aid": "4", "host": "wapzt.189.cn", "id": "'$uuid'", "net": "ws", "path": "'$ws_path'", "ps": "ws_'$ip:$ws_server_port'", "tls": "", "type": "none", "v": "2"}'|base64 -w 0 && echo
 
     [ -n "$tls_domain" ] && echo -n $echo_e_arg "\rws_tls: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": "443", "aid": "4", "host": "'$tls_domain'", "id": "'$uuid'", "net": "ws", "path": "'$ws_path'", "ps": "ws_tls_'$ip':443", "tls": "tls", "type": "none", "v": "2"}'|base64 -w 0 && echo
 
