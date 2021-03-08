@@ -24,7 +24,7 @@ Config() {
     clear
     uuid=`cat /proc/sys/kernel/random/uuid`
     tcpFastOpen=`[ -f /proc/sys/net/ipv4/tcp_fastopen ] && echo -n 'true' || -n echo 'false'`
-    echo -n $echo_e_arg "0. github(国内,压缩)\n1. coding(官方源)\n2. tencent(国内，压缩)\n请输入v2ray 核心的下载源(默认 github): "
+    echo -n $echo_e_arg "0. github(国内,压缩)\n1. coding(官方源)\n2. tencent(国内，压缩)\n请输入v2ray 核心的下载源(默认 0.github): "
     read v2rayCoreSource
     echo -n "请输入v2ray安装目录(默认:/usr/local/v2ray): "
     read install_dir
@@ -59,7 +59,7 @@ Config() {
             }
         }'
     if [ -n "$ws_server_port" ]; then
-        echo -n "Please input v2ray webSocket Path(default is '/cutebi'): "
+        echo -n "Please input v2ray webSocket Path(default is '/'): "
         read ws_path
         echo -n "Please input webSocket tls domain(If not, do not enter): "
         read tls_domain
@@ -81,7 +81,7 @@ Config() {
                 },
                 "network": "ws",
                 "wsSettings": {
-                    "path": "'${ws_path:-/cutebi}'"
+                    "path": "'${ws_path:-/}'"
                 }
             }
         }'
@@ -217,8 +217,8 @@ InstallInit() {
 
 outputVmessLink() {
     [ -z "$ip" ] && return
-    [ -n "$http_server_port" ] && echo -n $echo_e_arg "\rhttp: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": '$http_server_port', "aid": "6", "host": "cutebi.xyz", "id": "'$uuid'", "net": "tcp", "path": "/", "ps": "http_'$ip:$http_server_port'", "tls": "", "type": "http", "v": "2"}'|base64 -w 0 && echo
-    [ -n "$ws_server_port" ] && echo -n $echo_e_arg "\rws: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$ws_server_port'", "aid": "6", "host": "cutebi.xyz", "id": "'$uuid'", "net": "ws", "path": "'$ws_path'", "ps": "ws_'$ip:$ws_server_port'", "tls": "", "type": "none", "v": "2"}'|base64 -w 0 && echo
+    [ -n "$http_server_port" ] && echo -n $echo_e_arg "\rhttp: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": '$http_server_port', "aid": "6", "host": "wapzt.189.cn", "id": "'$uuid'", "net": "tcp", "path": "/", "ps": "http_'$ip:$http_server_port'", "tls": "", "type": "http", "v": "2"}'|base64 -w 0 && echo
+    [ -n "$ws_server_port" ] && echo -n $echo_e_arg "\rws: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$ws_server_port'", "aid": "6", "host": "wapzt.189.cn", "id": "'$uuid'", "net": "ws", "path": "'$ws_path'", "ps": "ws_'$ip:$ws_server_port'", "tls": "", "type": "none", "v": "2"}'|base64 -w 0 && echo
     [ -n "$tls_domain" ] && echo -n $echo_e_arg "\rws_tls: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": "443", "aid": "6", "host": "'$tls_domain'", "id": "'$uuid'", "net": "ws", "path": "'$ws_path'", "ps": "ws_tls_'$ip':443", "tls": "tls", "type": "none", "v": "2"}'|base64 -w 0 && echo
     [ -n "$mkcp_server_port" ] && echo -n $echo_e_arg "\rmkcp: vmess://" && echo -n $echo_E_arg '{"add": "'$ip'", "port": "'$mkcp_server_port'", "aid": "6", "host": "", "id": "'$uuid'", "net": "kcp", "path": "", "ps": "mkcp_'$ip:$mkcp_server_port'", "tls": "", "type": "utp", "v": "2"}'|base64 -w 0 && echo
 }
@@ -235,7 +235,7 @@ Install() {
         \r    webSocket server port:\033[35G${ws_server_port:-NULL}`[ -n \"$tls_domain\" ] && echo \ tls: 443`
         \r    mKCP server port:\033[35G${mkcp_server_port:-NULL} type: utp
         \r    uuid:\033[35G$uuid
-        \r    alterId:\033[35G4
+        \r    alterId:\033[35G6
         \r`[ -f /etc/init.d/v2ray ] && /etc/init.d/v2ray usage || \"$install_dir/v2ray.init\" usage`
         \033[44;37m`outputVmessLink`\033[0m"
 }
